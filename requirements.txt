@@ -1,0 +1,4 @@
+TA-lib
+pandas_ta
+ccxt==1.63.1
+py3cw
