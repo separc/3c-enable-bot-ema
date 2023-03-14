@@ -2,6 +2,7 @@ __pycache__/
 .DS_Store
 3c-enable-bot-ema_log.txt
 config.py
+spot_config.py
 archives/
 dev/
 venv/
