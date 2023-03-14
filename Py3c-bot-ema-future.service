@@ -1,0 +1,13 @@
+[Unit]
+Description=Py3c EMA bot trigger for future BTC USDT
+After=multi-user.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/pi/Documents/3c-enable-bot-ema
+ExecStart=/home/pi/Documents/adx-bot-add-hft-validation-SP/venv/bin/python3 /home/pi/Documents/3c-enable-bot-ema/Py3c-enable-bot-ema.py
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
