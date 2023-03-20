@@ -100,8 +100,15 @@ def check_trend(ma1, ma2, ma3):
 
 
 # Compute timeframe
-#timeframe = str(config.TF/60) + 'h'
-timeframe = '1h'
+time_frame_mins = config.TF
+if time_frame_mins < 60:
+    time_frame = int(time_frame_mins)
+    time_frame_unit = 'm'
+elif time_frame_mins >= 60:
+    time_frame = int(time_frame_mins//60)
+    time_frame_unit = 'h'
+timeframe = str(time_frame) + time_frame_unit
+
 
 ema_1 = config.EMA_1
 ema_2 = config.EMA_2
