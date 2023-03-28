@@ -86,6 +86,18 @@ def disable_bot(bot_id):
     print(f'Bot ID {bot_id} Disabled')
 
 
+def close_deal(bot_id):
+    f = open("3c-enable-bot-ema_log.txt", "a")
+    f.write(f'Panic Close - Bot ID #{bot_id} at {strftime("%Y-%m-%d %H:%M:%S", gmtime())} UTC\n')
+    f.close()
+    error, deal_close = p3cw.request(
+        entity = 'bots',
+        action = 'panic_sell_all_deals',
+        action_id = str(bot_id)
+    )
+    print(f'Panic Close - Bot ID #{bot_id}')
+
+
 def check_trend(ma1, ma2, ma3):
     if (ma1 > ma2) & (ma2 > ma3):
         trend = 'BULL'
@@ -178,6 +190,7 @@ while True:
         # Disable bot - call function to disable
         elif (lastCloseTrend != 'BULL') and BotIsEnabled:
             disable_bot(config.BOT_ID)
+            close_deal(config.BOT_ID)
 
         # End of Stats & Bot Update (Inner while loop)
         update_stats_time = False
