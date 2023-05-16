@@ -195,6 +195,10 @@ while True:
         # End of Stats & Bot Update (Inner while loop)
         update_stats_time = False
             
+        
+        # Export df previous last row to JSON file
+        df.loc[df.shape[0]-2].to_json(r'./BTC_Stats.json')
+        # df.to_csv(r'./BTC_Dataframe.csv') # Export df to CSV file
     
     # Wait before running script again (timer)
     now = datetime.datetime.now(timezone.utc)

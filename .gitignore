@@ -3,6 +3,8 @@ __pycache__/
 3c-enable-bot-ema_log.txt
 config.py
 spot_config.py
+BTC_Dataframe.csv
+BTC_Stats.json
 archives/
 dev/
 venv/
